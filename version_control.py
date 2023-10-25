@@ -1,19 +1,20 @@
 #Alejandro Velez's encode function
 def encode(in_password):
     out_password = ""
-    while len(in_password)>0:
+    while int(in_password) >0:
         num = int(in_password)%10
         if num+3<=9:
-            out_password=str(num+3) + out_password
-        else:
-            num = (num+3) %10
+            num+=3
             out_password = str(num) + out_password
-        in_password = str(int(in_password)/10)
+        else:
+            num = (num+3) % 10
+            out_password = str(num) + out_password
+        in_password = str(int(in_password) // 10)
     return out_password
 
 if __name__ == "__main__":
     option = 0
-    password = 0
+    password = ""
     while(option!=3):
         print("Menu")
         print("-------------")
