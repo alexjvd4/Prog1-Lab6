@@ -12,6 +12,21 @@ def encode(in_password):
         in_password = str(int(in_password) // 10)
     return out_password
 
+#Alejandro Velez's decode function
+def decode(in_password):
+    out_password = ""
+    while int(in_password)>0:
+        num = int(in_password)%10
+        if num-3>=0:
+            num-=3
+            out_password = str(num) + out_password
+        else:
+            num-=3
+            num*=(-1)
+            out_password = str(num) + out_password
+        in_password = str(int(in_password)//10)
+    return out_password
+
 if __name__ == "__main__":
     option = 0
     password = ""
@@ -25,7 +40,7 @@ if __name__ == "__main__":
             password = encode(in_pass)
             print("Your password has been encoded and stored!\n")
         elif option ==2:
-            print("The encoded password is " + password+", and the original password is " + decode(password)+".")
+            print("The encoded password is " + password+", and the original password is " + decode(password)+".\n")
         elif option ==3:
             break
         elif option !=3:
